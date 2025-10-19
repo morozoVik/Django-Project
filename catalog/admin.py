@@ -5,9 +5,10 @@ from .models import Category, Product
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     """Админ-панель для категорий"""
-    list_display = ('id', 'name', 'description')  # Что в списке
-    list_filter = ('name',)  # Фильтры справа
-    search_fields = ('name', 'description')  # Поля для поиска
+    list_display = ('id', 'name', 'description')
+    list_filter = ('name',)
+    list_display_links = ('id', 'name')
+    search_fields = ('name', 'description')
 
 
 @admin.register(Product)
@@ -21,7 +22,9 @@ class ProductAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at'
     )
+    list_display_links = ('id', 'name')
     list_filter = ('category', 'created_at', 'updated_at')
+    list_editable = ('price',)
     search_fields = ('name', 'description', 'category__name')
     readonly_fields = ('created_at', 'updated_at')
 
