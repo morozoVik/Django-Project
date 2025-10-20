@@ -12,5 +12,5 @@ Skystore - это интернет-магазин для продажи цифр
 - Python 3.x
 - Django 5.2
 - Bootstrap 5.3
-- SQLite
+
 
