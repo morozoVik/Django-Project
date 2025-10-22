@@ -4,11 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="на проверку">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="удалил ненужные файлы">
+      <change afterPath="$PROJECT_DIR$/catalog/templates/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/includes/footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/includes/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/django_shop.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/email_plugin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/image_service.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/seo_plugin.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/telegram_bot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/bootstrap.bundle.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/fixtures/product_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/fixtures/product_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,17 +66,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.manage.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#2 on homework__23"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#2 on homework__23&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\Django-Project\media\products" />
+      <recent name="C:\Users\Admin\PycharmProjects\Django-Project\static\js" />
+      <recent name="C:\Users\Admin\PycharmProjects\Django-Project\static\css" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Django-Project" />
@@ -178,7 +200,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760902938547</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="удалил ненужные файлы">
+      <option name="closed" value="true" />
+      <created>1760988718512</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1760988718512</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -189,6 +219,7 @@
     <MESSAGE value="созданы фикстуры&#10;Product&#10; и &#10;Category" />
     <MESSAGE value="Создана кастомная команда" />
     <MESSAGE value="на проверку" />
-    <option name="LAST_COMMIT_MESSAGE" value="на проверку" />
+    <MESSAGE value="удалил ненужные файлы" />
+    <option name="LAST_COMMIT_MESSAGE" value="удалил ненужные файлы" />
   </component>
 </project>

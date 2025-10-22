@@ -5,7 +5,7 @@
     "fields": {
       "name": "Плагин для email рассылок",
       "description": "Мощный плагин для автоматических email рассылок с аналитикой",
-      "image": "products/email_plugin.jpg",
+      "image": "products/email_plugin.png",
       "category": 1,
       "price": "2999.99",
       "created_at": "2025-10-19T10:00:00Z",
@@ -18,7 +18,7 @@
     "fields": {
       "name": "ТГ Бот для уведомлений",
       "description": "Умный бот для отправки уведомлений в Telegram с гибкими настройками",
-      "image": "products/telegram_bot.jpg",
+      "image": "products/telegram_bot.png",
       "category": 2,
       "price": "4999.50",
       "created_at": "2025-10-19T09:15:00Z",
@@ -31,7 +31,7 @@
     "fields": {
       "name": "Интернет-магазин на Django",
       "description": "Готовое решение интернет-магазина на Django с панелью администратора",
-      "image": "products/django_shop.jpg",
+      "image": "products/django_shop.png",
       "category": 3,
       "price": "14999.00",
       "created_at": "2025-10-19T14:20:00Z",
@@ -44,7 +44,7 @@
     "fields": {
       "name": "Плагин для SEO оптимизации",
       "description": "Плагин для автоматической SEO оптимизации сайтов с генерацией мета-тегов",
-      "image": "products/seo_plugin.jpg",
+      "image": "products/seo_plugin.png",
       "category": 1,
       "price": "5999.00",
       "created_at": "2025-10-19T11:30:00Z",
@@ -57,7 +57,7 @@
     "fields": {
       "name": "Микросервис для обработки изображений",
       "description": "Легковесный микросервис для обработки и оптимизации изображений",
-      "image": "products/image_service.jpg",
+      "image": "products/image_service.png",
       "category": 4,
       "price": "7999.99",
       "created_at": "2025-10-19T16:45:00Z",
