@@ -14,7 +14,7 @@ class BlogPostListView(ListView):
     context_object_name = "posts"
 
     def get_queryset(self):
-        return BlogPost.objects.filter(is_published=True)
+        return BlogPost.objects.filter(is_published=True).order_by('-created_at')
 
 
 class BlogPostDetailView(DetailView):
