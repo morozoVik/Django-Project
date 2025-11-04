@@ -4,8 +4,9 @@ from .models import Product
 
 
 class ProductForm(forms.ModelForm):
-    """Форма для продукта с валидацией запрещенных слов"""
+    """Форма для продукта с валидацией запрещенных слов и цены"""
 
+    # Список запрещенных слов
     FORBIDDEN_WORDS = [
         'казино', 'криптовалюта', 'крипта', 'биржа',
         'дешево', 'бесплатно', 'обман', 'полиция', 'радар'
@@ -14,25 +15,42 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ['name', 'description', 'image', 'category', 'price']
-        widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Введите название товара'}),
-            'description': forms.Textarea(
-                attrs={'class': 'form-control', 'rows': 4, 'placeholder': 'Введите описание товара'}),
-            'image': forms.FileInput(attrs={'class': 'form-control'}),
-            'category': forms.Select(attrs={'class': 'form-control'}),
-            'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Введите цену', 'min': '0', 'step': '0.01'}),
-        }
 
-    labels = {
-        'name': 'Название товара *',
-        'description': 'Описание товара',
-        'image': 'Изображение',
-        'category': 'Категория',
-        'price': 'Цена *',
-    }
-    help_texts = {
-        'price': 'Цена должна быть положительным числом',
-    }
+    def __init__(self, *args, **kwargs):
+        """Инициализация формы с добавлением CSS-классов"""
+        super().__init__(*args, **kwargs)
+
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+            if field_name == 'name':
+                field.widget.attrs['placeholder'] = 'Введите название товара'
+                field.widget.attrs['autofocus'] = 'autofocus'
+            elif field_name == 'description':
+                field.widget.attrs['placeholder'] = 'Введите описание товара'
+                field.widget.attrs['rows'] = '4'
+            elif field_name == 'price':
+                field.widget.attrs['placeholder'] = '0.00'
+                field.widget.attrs['min'] = '0.01'
+                field.widget.attrs['step'] = '0.01'
+                field.widget.attrs['pattern'] = '[0-9]+([\.,][0-9]+)?'
+
+            field.widget.attrs['aria-label'] = f'Поле {field.label.lower()}'
+
+        self.fields['description'].widget.attrs['class'] += ' form-control-lg'
+        self.fields['price'].widget.attrs['class'] += ' text-success fw-bold'
+        self.fields['image'].widget.attrs['class'] += ' form-control-file'
+        self.fields['category'].widget.attrs['class'] += ' form-select'
+
+        self.fields['name'].label = 'Название товара'
+        self.fields['description'].label = 'Описание товара'
+        self.fields['image'].label = 'Изображение товара'
+        self.fields['category'].label = 'Категория'
+        self.fields['price'].label = 'Цена товара (руб.)'
+
+        self.fields['price'].help_text = 'Введите положительное значение цены'
+        self.fields['name'].help_text = 'Название должно быть уникальным и информативным'
+        self.fields['description'].help_text = 'Подробно опишите характеристики товара'
 
     def clean_name(self):
         """Валидация названия продукта"""
