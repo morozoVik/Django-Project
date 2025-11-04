@@ -40,7 +40,12 @@
 
                     <div class="text-center">
                         <button type="button" class="btn btn-lg btn-block btn-primary">Купить</button>
-                        <a href="{% url 'catalog:home' %}" class="btn btn-lg btn-block btn-outline-secondary mt-2">Назад к каталогу</a>
+                    </div>
+
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="{% url 'catalog:home' %}" class="btn btn-outline-secondary">← Назад к каталогу</a>
+                        <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-outline-primary">Редактировать</a>
+                        <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-outline-danger">Удалить</a>
                     </div>
                 </div>
             </div>
