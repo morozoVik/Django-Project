@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Профиль - Skystore{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="mb-0">Мой профиль</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 text-center">
+                            {% if user.avatar %}
+                                <img src="{{ user.avatar.url }}" alt="Аватар" class="rounded-circle img-fluid mb-3" width="150" height="150">
+                            {% else %}
+                                <div class="bg-secondary rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 150px; height: 150px;">
+                                    <span class="text-white">No avatar</span>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <h5>Личная информация</h5>
+                            <table class="table table-borderless">
+                                <tr>
+                                    <th>Email:</th>
+                                    <td>{{ user.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Имя:</th>
+                                    <td>{{ user.first_name|default:"Не указано" }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Фамилия:</th>
+                                    <td>{{ user.last_name|default:"Не указано" }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Телефон:</th>
+                                    <td>{{ user.phone|default:"Не указан" }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Страна:</th>
+                                    <td>{{ user.country|default:"Не указана" }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
