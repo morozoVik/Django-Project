@@ -5,7 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.db import models
-from django.http import HttpResponseForbidden
+
 
 from .models import Category, Product
 from .forms import ProductForm
@@ -52,14 +52,13 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     login_url = reverse_lazy('users:login')
 
     def form_valid(self, form):
-        # ✅ Автоматически назначаем текущего пользователя владельцем
         form.instance.owner = self.request.user
         messages.success(self.request, 'Товар успешно создан!')
         return super().form_valid(form)
 
 
 class IsOwnerOrModeratorMixin(UserPassesTestMixin):
-    """✅ Миксин для проверки прав владельца или модератора"""
+    """ Миксин для проверки прав владельца или модератора"""
 
     def test_func(self):
         if not self.request.user.is_authenticated:
@@ -67,11 +66,9 @@ class IsOwnerOrModeratorMixin(UserPassesTestMixin):
 
         obj = self.get_object()
 
-        # ✅ Владелец может редактировать/удалять свои продукты
         if obj.owner == self.request.user:
             return True
 
-        # ✅ Модератор может удалять и менять статус любых продуктов
         if self.request.user.has_perm('catalog.delete_product'):
             return True
 
@@ -83,7 +80,7 @@ class IsOwnerOrModeratorMixin(UserPassesTestMixin):
 
 
 class IsOwnerMixin(UserPassesTestMixin):
-    """✅ Миксин для проверки, что пользователь - владелец продукта"""
+    """ Миксин для проверки, что пользователь - владелец продукта"""
 
     def test_func(self):
         if not self.request.user.is_authenticated:
@@ -97,7 +94,7 @@ class IsOwnerMixin(UserPassesTestMixin):
         return redirect('catalog:product_detail', pk=self.get_object().pk)
 
 
-class ProductUpdateView(LoginRequiredMixin, IsOwnerMixin, UpdateView):  # ✅ Только владелец
+class ProductUpdateView(LoginRequiredMixin, IsOwnerMixin, UpdateView):
     """Редактирование товара - только владелец"""
     model = Product
     form_class = ProductForm
@@ -110,14 +107,13 @@ class ProductUpdateView(LoginRequiredMixin, IsOwnerMixin, UpdateView):  # ✅ Т
 
     def get_form(self, form_class=None):
         form = super().get_form(form_class)
-        # ✅ Только модераторы могут менять статус
         if not self.request.user.has_perm('catalog.can_change_product_status'):
             if 'status' in form.fields:
                 del form.fields['status']
         return form
 
 
-class ProductDeleteView(LoginRequiredMixin, IsOwnerOrModeratorMixin, DeleteView):  # ✅ Владелец или модератор
+class ProductDeleteView(LoginRequiredMixin, IsOwnerOrModeratorMixin, DeleteView):
     """Удаление товара - владелец или модератор"""
     model = Product
     template_name = "catalog/product_confirm_delete.html"
@@ -150,6 +146,36 @@ class ContactsView(TemplateView):
             print(f"Новое сообщение от {name} ({phone}): {message}")
             messages.success(request, 'Сообщение успешно отправлено!')
         return self.get(request, *args, **kwargs)
+
+
+class CategoryProductsView(ListView):
+    """Страница с товарами конкретной категории"""
+    model = Product
+    template_name = "catalog/category_products.html"
+    context_object_name = "products"
+
+    def get_queryset(self):
+        category_id = self.kwargs['category_id']
+        self.category = get_object_or_404(Category, id=category_id)
+
+        queryset = Product.objects.filter(category=self.category)
+
+        if self.request.user.is_authenticated:
+            return queryset.filter(
+                models.Q(status='published') |
+                models.Q(owner=self.request.user)
+            ).distinct()
+        return queryset.filter(status='published')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['category'] = self.category
+        for product in context['products']:
+            if product.description and len(product.description) > 100:
+                product.short_description = product.description[:100] + '...'
+            else:
+                product.short_description = product.description or 'Описание отсутствует'
+        return context
 
 
 @login_required
