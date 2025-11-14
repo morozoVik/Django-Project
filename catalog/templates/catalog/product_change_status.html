@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h4 class="mb-0">Изменение статуса</h4>
+                </div>
+                <div class="card-body">
+                    <p>Вы уверены, что хотите изменить статус продукта <strong>"{{ product.name }}"</strong> на <strong>"{{ status_display }}"</strong>?</p>
+
+                    <div class="alert alert-info">
+                        <strong>Текущий статус:</strong> {{ product.get_status_display }}<br>
+                        <strong>Новый статус:</strong> {{ status_display }}
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">Изменить статус</button>
+                            <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-secondary">Отмена</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

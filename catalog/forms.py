@@ -14,14 +14,19 @@ class ProductForm(forms.ModelForm):
 
     class Meta:
         model = Product
-        fields = ['name', 'description', 'image', 'category', 'price']
+        fields = ['name', 'description', 'image', 'category', 'price', 'status']
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': 4}),
+            'status': forms.Select(attrs={'class': 'form-select'}),
+        }
 
     def __init__(self, *args, **kwargs):
         """Инициализация формы с добавлением CSS-классов"""
         super().__init__(*args, **kwargs)
 
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'form-control'
+            if field_name != 'status':
+                field.widget.attrs['class'] = 'form-control'
 
             if field_name == 'name':
                 field.widget.attrs['placeholder'] = 'Введите название товара'
@@ -33,7 +38,6 @@ class ProductForm(forms.ModelForm):
                 field.widget.attrs['placeholder'] = '0.00'
                 field.widget.attrs['min'] = '0.01'
                 field.widget.attrs['step'] = '0.01'
-                field.widget.attrs['pattern'] = '[0-9]+([\.,][0-9]+)?'
 
             field.widget.attrs['aria-label'] = f'Поле {field.label.lower()}'
 
@@ -47,6 +51,10 @@ class ProductForm(forms.ModelForm):
         self.fields['image'].label = 'Изображение товара'
         self.fields['category'].label = 'Категория'
         self.fields['price'].label = 'Цена товара (руб.)'
+
+        if 'status' in self.fields:
+            self.fields['status'].label = 'Статус публикации'
+            self.fields['status'].help_text = 'Выберите статус видимости продукта'
 
         self.fields['price'].help_text = 'Введите положительное значение цены'
         self.fields['name'].help_text = 'Название должно быть уникальным и информативным'

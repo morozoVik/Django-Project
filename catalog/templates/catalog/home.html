@@ -43,11 +43,19 @@
                     <!-- Описание товара (обрезанное до 100 символов) -->
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3 flex-grow-1">
                         <li><strong>Категория:</strong> {{ product.category.name }}</li>
+                        <li><strong>Статус:</strong>
+                            <span class="badge
+                                {% if product.status == 'published' %}bg-success
+                                {% elif product.status == 'draft' %}bg-secondary
+                                {% else %}bg-danger{% endif %}">
+                                {{ product.get_status_display }}
+                            </span>
+                        </li>
                         <li><strong>Описание:</strong>
                             {% if product.description|length > 100 %}
-                                {{ product.description|slice:100 }}...
+                            {{ product.description|slice:100 }}...
                             {% else %}
-                                {{ product.description }}
+                            {{ product.description }}
                             {% endif %}
                         </li>
                     </ul>
@@ -57,6 +65,33 @@
                        class="btn btn-lg btn-block btn-outline-primary mt-auto">
                        Подробнее
                     </a>
+
+                    {% if user.is_authenticated %}
+                    <div class="mt-2">
+                        {% if user == product.owner %}
+                        <div class="btn-group w-100">
+                            <a href="{% url 'catalog:product_update' product.id %}"
+                               class="btn btn-sm btn-outline-primary"
+                               title="Редактировать">
+                                ✏️
+                            </a>
+                            <a href="{% url 'catalog:product_delete' product.id %}"
+                               class="btn btn-sm btn-outline-danger"
+                               title="Удалить">
+                                🗑️
+                            </a>
+                        </div>
+                        {% endif %}
+
+                        {% if user != product.owner and perms.catalog.delete_product %}
+                        <a href="{% url 'catalog:product_delete' product.id %}"
+                           class="btn btn-sm btn-outline-warning w-100"
+                           title="Удалить (модератор)">
+                            🗑️ Удалить
+                        </a>
+                        {% endif %}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
