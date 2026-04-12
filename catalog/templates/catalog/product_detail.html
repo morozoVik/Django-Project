@@ -34,6 +34,15 @@
 
                     <ul class="list-unstyled mt-3 mb-4">
                         <li><strong>Категория:</strong> {{ product.category.name }}</li>
+                        <li><strong>Статус:</strong>
+                            <span class="badge
+                                {% if product.status == 'published' %}bg-success
+                                {% elif product.status == 'draft' %}bg-secondary
+                                {% else %}bg-danger{% endif %}">
+                                {{ product.get_status_display }}
+                            </span>
+                        </li>
+                        <li><strong>Владелец:</strong> {{ product.owner.email|default:"Не указан" }}</li>
                         <li><strong>Дата добавления:</strong> {{ product.created_at|date:"d.m.Y" }}</li>
                         <li><strong>Последнее обновление:</strong> {{ product.updated_at|date:"d.m.Y" }}</li>
                     </ul>
@@ -44,8 +53,33 @@
 
                     <div class="d-flex gap-2 mt-3">
                         <a href="{% url 'catalog:home' %}" class="btn btn-outline-secondary">← Назад к каталогу</a>
-                        <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-outline-primary">Редактировать</a>
-                        <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-outline-danger">Удалить</a>
+
+                        {% if user.is_authenticated %}
+                        {% if user == product.owner %}
+                        <a href="{% url 'catalog:product_update' product.pk %}" class="btn btn-outline-primary">✏️ Редактировать</a>
+                        {% endif %}
+
+                        {% if user == product.owner or perms.catalog.delete_product %}
+                        <a href="{% url 'catalog:product_delete' product.pk %}" class="btn btn-outline-danger">🗑️ Удалить</a>
+                        {% endif %}
+
+                        {% if perms.catalog.can_unpublish_product and product.is_published %}
+                        <a href="{% url 'catalog:product_unpublish' product.pk %}" class="btn btn-outline-warning">📢 Снять с публикации</a>
+                        {% endif %}
+
+                        {% if perms.catalog.can_change_product_status %}
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-outline-info dropdown-toggle" data-bs-toggle="dropdown">
+                                🔄 Изменить статус
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url 'catalog:change_product_status' product.pk 'draft' %}">📝 Черновик</a></li>
+                                <li><a class="dropdown-item" href="{% url 'catalog:change_product_status' product.pk 'published' %}">✅ Опубликовать</a></li>
+                                <li><a class="dropdown-item" href="{% url 'catalog:change_product_status' product.pk 'rejected' %}">❌ Отклонить</a></li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                        {% endif %}
                     </div>
                 </div>
             </div>

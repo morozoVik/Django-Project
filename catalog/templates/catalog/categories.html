@@ -19,11 +19,15 @@
                     <h4 class="my-0 font-weight-normal">{{ category.name }}</h4>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">{{ category.description }}</p>
+                    <p class="card-text">{{ category.description|default:"Описание отсутствует" }}</p>
                     <div class="mb-3">
-                        <small class="text-muted">Товаров: {{ category.product_set.count }}</small>
+                        <small class="text-muted">
+                            Товаров: {{ category.product_set.count }}
+                        </small>
                     </div>
-                    <a href="{% url 'catalog:home' %}" class="btn btn-lg btn-block btn-outline-primary">Смотреть товары</a>
+                    <a href="{% url 'catalog:category_products' category.id %}" class="btn btn-lg btn-block btn-outline-primary">
+                        Смотреть товары
+                    </a>
                 </div>
             </div>
         </div>

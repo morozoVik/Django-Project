@@ -4,24 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="homework 25">
-      <change afterPath="$PROJECT_DIR$/catalog/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_confirm_delete.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/django_shop_xQMTK3s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/email_plugin_xOyps5u.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/telegram_bot_wRBKRdH.png" afterDir="false" />
+    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="Создана группа для роли «Модератор продуктов» и настроены необходимые разрешения.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/catalog/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homework_25" />
+        <entry key="$PROJECT_DIR$" value="homework_27" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,7 +60,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "homework__26.1",
+    "git-widget-placeholder": "homework__28",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -233,7 +221,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761513062905</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="homework 25&#10;функция аутентификации пользователей">
+      <option name="closed" value="true" />
+      <created>1762637473678</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1762637473678</updated>
+    </task>
+    <task id="LOCAL-00015" summary="homework 25">
+      <option name="closed" value="true" />
+      <created>1762637600548</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1762637600548</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Создана группа для роли «Модератор продуктов» и настроены необходимые разрешения.">
+      <option name="closed" value="true" />
+      <created>1763151710357</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1763151710357</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -247,7 +259,9 @@
     <MESSAGE value="удалил ненужные файлы" />
     <MESSAGE value="homework_24" />
     <MESSAGE value="создан раздел/приложение &quot;Блог&quot;" />
+    <MESSAGE value="homework 25&#10;функция аутентификации пользователей" />
     <MESSAGE value="homework 25" />
-    <option name="LAST_COMMIT_MESSAGE" value="homework 25" />
+    <MESSAGE value="Создана группа для роли «Модератор продуктов» и настроены необходимые разрешения." />
+    <option name="LAST_COMMIT_MESSAGE" value="Создана группа для роли «Модератор продуктов» и настроены необходимые разрешения." />
   </component>
 </project>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h4 class="mb-0">Снять с публикации</h4>
+                </div>
+                <div class="card-body">
+                    <p>Вы уверены, что хотите снять с публикации продукт <strong>"{{ product.name }}"</strong>?</p>
+                    <p class="text-muted">После снятия с публикации продукт будет виден только его владельцу и модераторам.</p>
+
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-warning">Снять с публикации</button>
+                            <a href="{% url 'catalog:product_detail' product.pk %}" class="btn btn-secondary">Отмена</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

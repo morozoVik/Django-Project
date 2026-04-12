@@ -19,14 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
-from django.contrib.auth.views import LoginView, LogoutView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("catalog.urls", namespace="catalog")),
     path("blog/", include("blog.urls", namespace="blog")),
-    path("users/login/", LoginView.as_view(template_name="catalog/login.html"), name="login"),
-    path("users/logout/", LogoutView.as_view(), name="logout"),
+    path("users/", include("users.urls", namespace="users")),
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,16 @@
+[
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "Модератор продуктов",
+            "permissions": [
+                ["delete_product", "catalog", "product"],
+                ["change_product", "catalog", "product"],
+                ["view_product", "catalog", "product"],
+                ["can_unpublish_product", "catalog", "product"],
+                ["can_change_product_status", "catalog", "product"]
+            ]
+        }
+    }
+]

@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Skystore{% endblock %}
+{% block title %}Товары категории {{ category.name }} - Skystore{% endblock %}
 
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Skystore</h1>
-    <p class="lead">Skystore - это отличный вариант хранения ваших плагинов и примеров кода, который вы бы хотели
-        продать</p>
-    <a href="{% url 'catalog:product_create' %}" class="btn btn-primary">Добавить новый товар</a>
+    <h1 class="display-4">{{ category.name }}</h1>
+    <p class="lead">{{ category.description|default:"Товары данной категории" }}</p>
+    <a href="{% url 'catalog:categories' %}" class="btn btn-outline-secondary">← Назад к категориям</a>
 </div>
 
 <div class="container">
-    <!-- Секция с товарами из базы данных -->
-    <h2 class="text-center mb-4">Наши товары</h2>
+    <!-- Секция с товарами категории -->
+    <h2 class="text-center mb-4">Товары категории "{{ category.name }}"</h2>
 
     {% if products %}
     <div class="row text-center">
@@ -40,9 +39,8 @@
                     <!-- Цена -->
                     <h1 class="card-title pricing-card-title">{{ product.price }} руб.</h1>
 
-                    <!-- Описание товара (обрезанное до 100 символов) -->
+                    <!-- Описание товара -->
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3 flex-grow-1">
-                        <li><strong>Категория:</strong> {{ product.category.name }}</li>
                         <li><strong>Статус:</strong>
                             <span class="badge
                                 {% if product.status == 'published' %}bg-success
@@ -66,18 +64,17 @@
                        Подробнее
                     </a>
 
+                    <!-- Кнопки управления -->
                     {% if user.is_authenticated %}
                     <div class="mt-2">
                         {% if user == product.owner %}
                         <div class="btn-group w-100">
                             <a href="{% url 'catalog:product_update' product.id %}"
-                               class="btn btn-sm btn-outline-primary"
-                               title="Редактировать">
+                               class="btn btn-sm btn-outline-primary" title="Редактировать">
                                 ✏️
                             </a>
                             <a href="{% url 'catalog:product_delete' product.id %}"
-                               class="btn btn-sm btn-outline-danger"
-                               title="Удалить">
+                               class="btn btn-sm btn-outline-danger" title="Удалить">
                                 🗑️
                             </a>
                         </div>
@@ -85,8 +82,7 @@
 
                         {% if user != product.owner and perms.catalog.delete_product %}
                         <a href="{% url 'catalog:product_delete' product.id %}"
-                           class="btn btn-sm btn-outline-warning w-100"
-                           title="Удалить (модератор)">
+                           class="btn btn-sm btn-outline-warning w-100" title="Удалить (модератор)">
                             🗑️ Удалить
                         </a>
                         {% endif %}
@@ -102,8 +98,11 @@
         <div class="col-12">
             <div class="card mb-4 box-shadow">
                 <div class="card-body">
-                    <p class="lead">Товаров пока нет. Добавьте товары через админ-панель!</p>
-                    <a href="/admin/" class="btn btn-outline-primary">Перейти в админку</a>
+                    <p class="lead">В категории "{{ category.name }}" пока нет товаров.</p>
+                    <a href="{% url 'catalog:categories' %}" class="btn btn-outline-primary">← Назад к категориям</a>
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'catalog:product_create' %}" class="btn btn-primary">➕ Добавить товар</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
