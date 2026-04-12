@@ -5,10 +5,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib import messages
 from django.db import models
-
+from django.core.cache import cache
+from django.conf import settings
 
 from .models import Category, Product
 from .forms import ProductForm
+from .services import get_products_by_category, get_categories_with_products
 
 
 class HomeView(ListView):
@@ -18,22 +20,23 @@ class HomeView(ListView):
     context_object_name = "products"
 
     def get_queryset(self):
-        queryset = super().get_queryset()
-        if self.request.user.is_authenticated:
-            return queryset.filter(
-                models.Q(status='published') |
-                models.Q(owner=self.request.user)
-            ).distinct()
-        return queryset.filter(status='published')
+        cache_key = 'published_products'
+        queryset = cache.get(cache_key)
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        for product in context['products']:
-            if product.description and len(product.description) > 100:
-                product.short_description = product.description[:100] + '...'
+        if queryset is None:
+            queryset = super().get_queryset()
+            if self.request.user.is_authenticated:
+                queryset = queryset.filter(
+                    models.Q(status='published') |
+                    models.Q(owner=self.request.user)
+                ).distinct()
             else:
-                product.short_description = product.description or 'Описание отсутствует'
-        return context
+                queryset = queryset.filter(status='published')
+
+            if settings.CACHE_ENABLED:
+                cache.set(cache_key, queryset, timeout=300)
+
+        return queryset
 
 
 class ProductDetailView(DetailView):
@@ -42,6 +45,16 @@ class ProductDetailView(DetailView):
     template_name = "catalog/product_detail.html"
     context_object_name = "product"
 
+    def get_object(self, queryset=None):
+        cache_key = f'product_detail_{self.kwargs["pk"]}'
+        product = cache.get(cache_key)
+
+        if product is None:
+            product = super().get_object(queryset)
+            if settings.CACHE_ENABLED:
+                cache.set(cache_key, product, timeout=300)
+
+        return product
 
 class ProductCreateView(LoginRequiredMixin, CreateView):
     """Создание нового товара"""
@@ -132,6 +145,9 @@ class CategoriesView(ListView):
     template_name = "catalog/categories.html"
     context_object_name = "categories"
 
+    def get_queryset(self):
+        return get_categories_with_products()
+
 
 class ContactsView(TemplateView):
     """Страница контактов"""
@@ -158,14 +174,16 @@ class CategoryProductsView(ListView):
         category_id = self.kwargs['category_id']
         self.category = get_object_or_404(Category, id=category_id)
 
-        queryset = Product.objects.filter(category=self.category)
+        products = get_products_by_category(category_id)
 
         if self.request.user.is_authenticated:
-            return queryset.filter(
-                models.Q(status='published') |
-                models.Q(owner=self.request.user)
-            ).distinct()
-        return queryset.filter(status='published')
+            user_products = Product.objects.filter(
+                category=self.category,
+                owner=self.request.user
+            ).exclude(status='published')
+            products = list(products) + list(user_products)
+
+        return products
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
