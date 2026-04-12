@@ -1,0 +1,42 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "Плагины",
+      "description": "Полезные плагины для различных систем и CMS"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Телеграм боты",
+      "description": "Умные боты для Telegram с различным функционалом"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Веб-приложения",
+      "description": "Готовые веб-приложения и сайты на современных технологиях"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Микросервисы",
+      "description": "Легковесные микросервисы для распределенных систем"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 5,
+    "fields": {
+      "name": "Полезные утилиты",
+      "description": "Вспомогательные утилиты для разработчиков"
+    }
+  }
+]

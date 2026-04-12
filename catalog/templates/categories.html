@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Категории - Skystore{% endblock %}
+
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Категории товаров</h1>
+    <p class="lead">Выберите интересующую вас категорию</p>
+</div>
+
+<div class="container">
+    {% if categories %}
+    <div class="row text-center">
+        {% for category in categories %}
+        <div class="col-4">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ category.name }}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">{{ category.description }}</p>
+                    <div class="mb-3">
+                        <small class="text-muted">Товаров: {{ category.product_set.count }}</small>
+                    </div>
+                    <a href="{% url 'catalog:home' %}" class="btn btn-lg btn-block btn-outline-primary">Смотреть товары</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="row text-center">
+        <div class="col-12">
+            <div class="card mb-4 box-shadow">
+                <div class="card-body">
+                    <p class="lead">Категорий пока нет. Добавьте категории через админ-панель!</p>
+                    <a href="/admin/" class="btn btn-outline-primary">Перейти в админку</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
