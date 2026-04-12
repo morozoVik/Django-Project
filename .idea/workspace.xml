@@ -4,26 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="удалил ненужные файлы">
-      <change afterPath="$PROJECT_DIR$/catalog/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templates/includes/footer.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/catalog/templates/includes/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/django_shop.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/email_plugin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/image_service.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/seo_plugin.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/products/telegram_bot.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/bootstrap.bundle.min.js" afterDir="false" />
+    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="создан раздел/приложение &quot;Блог&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/fixtures/product_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/fixtures/product_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/categories.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/contacts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homework_2.2" />
+        <entry key="$PROJECT_DIR$" value="homework_23" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,19 +49,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.manage.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#2 on homework__23&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.manage.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "homework__25",
+    "settings.editor.selected.configurable": "preferences.keymap"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\Django-Project\templates" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\media\products" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\static\js" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\static\css" />
@@ -208,7 +193,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760988718512</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="homework_24">
+      <option name="closed" value="true" />
+      <created>1761169644775</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1761169644775</updated>
+    </task>
+    <task id="LOCAL-00012" summary="создан раздел/приложение &quot;Блог&quot;">
+      <option name="closed" value="true" />
+      <created>1761512146124</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1761512146124</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -220,6 +221,8 @@
     <MESSAGE value="Создана кастомная команда" />
     <MESSAGE value="на проверку" />
     <MESSAGE value="удалил ненужные файлы" />
-    <option name="LAST_COMMIT_MESSAGE" value="удалил ненужные файлы" />
+    <MESSAGE value="homework_24" />
+    <MESSAGE value="создан раздел/приложение &quot;Блог&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="создан раздел/приложение &quot;Блог&quot;" />
   </component>
 </project>

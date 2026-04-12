@@ -1,0 +1,35 @@
+<footer class="bg-dark text-light mt-5 py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="text-white">Skystore</h5>
+                <p class="text-light-emphasis">Лучшие цифровые продукты для разработчиков</p>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-white">Навигация</h5>
+                <ul class="list-unstyled">
+                    <li><a href="{% url 'catalog:home' %}" class="text-light text-decoration-none hover-text-warning">Каталог</a></li>
+                    <li><a href="{% url 'catalog:categories' %}" class="text-light text-decoration-none hover-text-warning">Категории</a></li>
+                    <li><a href="{% url 'blog:post_list' %}" class="text-light text-decoration-none hover-text-warning">Блог</a></li>
+                    <li><a href="{% url 'catalog:contacts' %}" class="text-light text-decoration-none hover-text-warning">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5 class="text-white">Контакты</h5>
+                <ul class="list-unstyled">
+                    <li class="text-light">📧 Email: info@skystore.com</li>
+                    <li class="text-light">📞 Телефон: +7 (999) 123-45-67</li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <small class="text-light-emphasis">&copy; 2025 Skystore. Все права защищены.</small>
+        </div>
+    </div>
+</footer>
+
+<style>
+.hover-text-warning:hover {
+    color: #ffc107 !important;
+}
+</style>
