@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="создан раздел/приложение &quot;Блог&quot;">
+    <list default="true" id="69a16adc-6642-4615-8123-d8d169718611" name="Changes" comment="homework 25">
+      <change afterPath="$PROJECT_DIR$/catalog/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_confirm_delete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/django_shop_xQMTK3s.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/email_plugin_xOyps5u.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/media/products/telegram_bot_wRBKRdH.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/templates/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/templates/catalog/product_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/catalog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/catalog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/header.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +39,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homework_23" />
+        <entry key="$PROJECT_DIR$" value="homework_25" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -57,12 +72,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "homework__25",
+    "git-widget-placeholder": "homework__26.1",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\Django-Project\catalog\templates\catalog" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\templates" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\media\products" />
       <recent name="C:\Users\Admin\PycharmProjects\Django-Project\static\js" />
@@ -209,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761512146124</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="homework 25">
+      <option name="closed" value="true" />
+      <created>1761513062905</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1761513062905</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +247,7 @@
     <MESSAGE value="удалил ненужные файлы" />
     <MESSAGE value="homework_24" />
     <MESSAGE value="создан раздел/приложение &quot;Блог&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="создан раздел/приложение &quot;Блог&quot;" />
+    <MESSAGE value="homework 25" />
+    <option name="LAST_COMMIT_MESSAGE" value="homework 25" />
   </component>
 </project>
